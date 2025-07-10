@@ -19,6 +19,18 @@ def download_meme_pack():
         logging.info("Downloaded meme pack.")
     else:
         logging.error("Failed to download meme pack.")
+        import threading
+import os
+import time
+
+# Exit after N seconds (e.g., 43200 sec = 12 hours)
+def self_shutdown():
+    time.sleep(43200)  # 12 hours
+    print("🛑 Shutting down to conserve Railway hours.")
+    os._exit(0)
+
+threading.Thread(target=self_shutdown).start()
+
 
 def sort_imported_memes():
     src = "memes/imported"
